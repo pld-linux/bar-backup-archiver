@@ -1,0 +1,11 @@
+--- bar-0.13b-orig/configure.in	2010-05-29 09:05:38.685074986 +0200
++++ bar-0.13b/configure.in	2010-05-29 09:10:44.794981385 +0200
+@@ -1018,6 +1018,8 @@
+   #define offsetof(type,member) ((size_t)&((type*)0)->member)
+ #endif /* offsetof */
+ 
++#define LONG_LONG_MAX LLONG_MAX
++
+ ])
+ 
+ AH_BOTTOM([#endif /* __CONFIG__ */])
