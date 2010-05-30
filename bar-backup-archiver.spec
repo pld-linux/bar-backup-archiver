@@ -1,5 +1,5 @@
 %define		shortname bar
-%define		altver	b
+%define		altver b
 Summary:	BAR is backup archiver program
 Summary(hu.UTF-8):	BAR egy backup archiváló program
 Name:		bar-backup-archiver
@@ -11,15 +11,17 @@ Source0:	http://www.kigen.de/projects/bar/bar-%{version}%{altver}.tar.bz2
 # Source0-md5:	d2b10480a0c23a7fcd08c2f66c560b17
 Patch0:		long_long_max.patch
 URL:		http://www.kigen.de/projects/bar/index.html
-BuildRequires:	bzip2-devel
+BuildRequires:	bzip2-static
+BuildRequires:	ftplib-static
+BuildRequires:	gnutls-static
+BuildRequires:	java-sun
+BuildRequires:	libgcrypt-static
+BuildRequires:	libgpg-error-static
+BuildRequires:	libssh2-static
+BuildRequires:	libtasn1-static
 BuildRequires:	txt2man
-BuildRequires:	xz-devel
-BuildRequires:	zlib-devel
-BuildRequires:	libgpg-error-devel
-BuildRequires:	libgcrypt-devel
-BuildRequires:	gnutls-devel
-BuildRequires:	ftplib-devel
-BuildRequires:	libssh2-devel
+BuildRequires:	xz-static
+BuildRequires:	zlib-static
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,6 +33,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %patch0 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
 %{__autoheader}
 %{__autoconf}
 %configure
