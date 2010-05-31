@@ -1,0 +1,10 @@
+--- bar-0.13b-orig/Makefile.in	2010-05-29 09:05:38.685074986 +0200
++++ bar-0.13b/Makefile.in	2010-05-31 11:04:17.783693344 +0200
+@@ -172,6 +172,7 @@
+ 	bar/bar-keygen \
+           --private-directory=. \
+           --certs-directory=. \
++	  -d=./keys \
+           $(if $(findstring $(KEYTOOL),certtool),--certtool) \
+           $(if $(findstring $(KEYTOOL),openssl),--openssl) \
+ 
